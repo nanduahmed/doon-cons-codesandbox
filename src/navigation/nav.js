@@ -1,4 +1,5 @@
 import React from "react";
+// import Projects from "./Projects";
 // import { Button } from 'reactstrap';
 import {
   Collapse,
@@ -13,6 +14,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 export default class Navigator extends React.Component {
   constructor(props) {
@@ -32,30 +34,32 @@ export default class Navigator extends React.Component {
     return (
       <div>
         <Navbar color="dark" dark expand="md">
-          <NavbarBrand href="#">DC</NavbarBrand>
+          <Link to="/">
+            <NavbarBrand href="#">Doon Constructions</NavbarBrand>
+          </Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="#">Components</NavLink>
+                <Link to="/projects">
+                  <NavLink>Projects</NavLink>
+                </Link>
               </NavItem>
               <NavItem>
-                <NavLink href="#">GitHub</NavLink>
+                <Link to="/services">
+                  <NavLink>Services</NavLink>
+                </Link>
               </NavItem>
               <NavItem>
-                <NavLink href="#">GitHub</NavLink>
+                <Link to="/rates">
+                  <NavLink>Rates</NavLink>
+                </Link>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>Option 1</DropdownItem>
-                  <DropdownItem>Option 2</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Reset</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              <NavItem>
+                <Link to="/about">
+                  <NavLink>About Us</NavLink>
+                </Link>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
